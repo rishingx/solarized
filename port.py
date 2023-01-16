@@ -35,4 +35,4 @@ def load_settings():
         file = open("./settings.dat", "wb")
         pickle.dump([5, 1, 1], file)
         file.close()
-        load_settings()
+        return load_settings()
