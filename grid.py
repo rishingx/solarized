@@ -8,14 +8,14 @@ class Grid:
     def __init__(self, houses, fluc, chg, pay):
         self.houses = houses
         self.fluc = fluc
-        self.chg = chg 
-        self.pay = pay 
+        self.chg = chg
+        self.pay = pay
         self.cur_sheet = []
-        self.revenue = 0 
+        self.revenue = 0
 
     def cycle(self):
         self.cur_sheet = []
-        self.revenue = 0 
+        self.revenue = 0
         for i in range(self.houses):
             prod = round((random.random()-0.5)*self.fluc, 4)
             cons = round((random.random()-0.5)*self.fluc, 4)

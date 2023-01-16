@@ -1,6 +1,6 @@
 #========== IMPORT ==========#
 
-import csv 
+import csv
 import pickle
 
 #========== DATA FUNCTIONS ==========#
@@ -26,13 +26,7 @@ def save_settings(fluc, chg, pay):
     file.close()
 
 def load_settings():
-    try:
-        file = open("./settings.dat", "rb")
-        settings = pickle.load(file)
-        file.close()
-        return settings
-    except:
-        file = open("./settings.dat", "wb")
-        pickle.dump([5, 1, 1], file)
-        file.close()
-        return load_settings()
+    file = open("./settings.dat", "rb")
+    settings = pickle.load(file)
+    file.close()
+    return settings

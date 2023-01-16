@@ -1,6 +1,6 @@
 #========== IMPORT ==========#
 
-import sys 
+import sys
 import bridge
 import grid
 import port
@@ -62,7 +62,7 @@ class Panel(QMainWindow):
         export_action = QAction('Export to CSV', self)
         export_action.setShortcut('s')
         export_action.triggered.connect(lambda :self.export_csv())
-    
+        
         exit_action = QAction('Exit', self)
         exit_action.setShortcut('q')
         exit_action.triggered.connect(lambda :QApplication.quit())
@@ -70,7 +70,7 @@ class Panel(QMainWindow):
         fileMenu.addAction(import_action)
         fileMenu.addAction(export_action)
         fileMenu.addAction(exit_action)
-
+        
         #== editmenu ==#
         editMenu = self.menuBar.addMenu('Edit')
 
@@ -113,7 +113,7 @@ class Panel(QMainWindow):
         amt_action = QAction('Get Amount', self)
         amt_action.setShortcut('g')
         amt_action.triggered.connect(lambda :self.get_amount())
-
+        
         gridMenu.addAction(cycle_action)
         gridMenu.addAction(ff_action)
         gridMenu.addAction(fluc_action)
@@ -160,7 +160,7 @@ class Panel(QMainWindow):
     def setup_graph(self):
         self.sc = Graph(self, width=5, height=4, dpi=100)
         self.layout.addWidget(self.sc)
-
+        
         self.graphbar = NavigationToolbar(self.sc)
         self.layout.addWidget(self.graphbar)
         self.draw_graph()
@@ -300,12 +300,12 @@ class Panel(QMainWindow):
                     result_table.setRowCount(len(results))
                     result_table.setHorizontalHeaderLabels(['Account', 'Name', 'Phone', 'Avg Prod Rate'])
                     result_table.setSortingEnabled(True)
-
+            
                     for row in range(len(results)):
                         for col in range(len(results[0])):
                             cell = QTableWidgetItem(str(results[row][col]))
                             result_table.setItem(row, col, cell)
-
+           
                     dlg.layout = QVBoxLayout()
                     dlg.layout.addWidget(result_table)
                     dlg.layout.addWidget(dlg.buttonBox)
@@ -332,7 +332,7 @@ class Panel(QMainWindow):
     def change_chg(self):
         chg, done = QInputDialog.getDouble(self, 'Input Dialog', 'Enter Power Charge:', min=0.0, value=self.settings[1])
         if done:
-            self.gd.chg = chg 
+            self.gd.chg = chg
             port.save_settings(self.settings[0], chg, self.settings[2])
             self.settings = port.load_settings()
             self.dialog("Changing Power Charge...", "Power Charge Changed!")
@@ -340,7 +340,7 @@ class Panel(QMainWindow):
     def change_pay(self):
         pay, done = QInputDialog.getDouble(self, 'Input Dialog', 'Enter Power Payout:', min=0.0, value=self.settings[2])
         if done:
-            self.gd.pay = pay 
+            self.gd.pay = pay
             port.save_settings(self.settings[0], self.settings[1], pay)
             self.settings = port.load_settings()
             self.dialog("Changing Power Payout...", "Power Payout Changed!")
@@ -366,7 +366,7 @@ class Panel(QMainWindow):
         dlg.setWindowTitle(title)
         dlg.setText(message)
         dlg.exec()
-        del dlg 
+        del dlg
 
     def confirm(self, title, message):
         dlg = QDialog()
