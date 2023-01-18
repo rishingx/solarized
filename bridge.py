@@ -5,9 +5,9 @@ import mysql.connector as mc
 #========== GLOBALS ==========#
 
 host = "localhost"
-user = "rishi"
-passwd = "rishi123"
-database = "grid"
+user = ""
+passwd = ""
+database = ""
 
 #========== CONNECTION FUNCTIONS ==========#
 
