@@ -1,6 +1,6 @@
 #========== IMPORT ==========#
 
-import mysql.connector as mc
+import mariadb
 
 #========== GLOBALS ==========#
 
@@ -13,7 +13,7 @@ database = "grid"
 
 def connect():
     global mycon, cur
-    mycon = mc.connect(host=host, user=user, passwd=passwd, database=database)
+    mycon = mariadb.connect(host=host, user=user, passwd=passwd, database=database)
     if mycon.is_connected():
         cur = mycon.cursor()
     else:

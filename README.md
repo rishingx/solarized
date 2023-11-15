@@ -62,6 +62,3 @@ In order to run the program, execute *gui.py* present in the base directory. The
 |port.py|Provides import/export functionalities|
 |default.csv|Stores the default data values|
 |settings.dat|Stores saved settings|
-
-
-"Hello World!!"
